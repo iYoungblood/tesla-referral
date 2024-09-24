@@ -204,9 +204,11 @@ if ($connection->connect_error) {
 
           if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            echo $row['teslalink'];
-            // Add an indicator for JavaScript to display the container
-            echo '<script>document.querySelector(".returnedLinkContainer").style.display = "block";</script>';
+            echo '<script>
+              document.getElementById("randomLink").textContent = "' . $row['teslalink'] . '";
+              document.querySelector(".returnedLinkContainer").style.display = "block";
+              document.getElementById("copyButton").style.display = "inline-block";
+            </script>';
           } else {
             echo "No data found";
           }
@@ -228,8 +230,13 @@ if ($connection->connect_error) {
         <li>Model 3: Affordable electric sedan</li>
         <li>Model X: SUV with falcon-wing doors</li>
         <li>Model Y: Compact SUV for families</li>
+        <li>Cybertruck: Haul everything you need</li>
+        <li>Solar Roof: Produce clean energy with a clean look</li>
+        <li>Solar Panels: Solar energy for your home</li>
       </ul>
     </div>
+
+
 
     <div class="container">
       <h3>Already own a Tesla? Submit your referral link into the database below.</h3>
@@ -284,7 +291,7 @@ if ($connection->connect_error) {
         <li>Support the Tesla community</li>
         <li>Help accelerate the world's transition to sustainable energy</li>
       </ul>
-      <a href="https://www.tesla.com/referral" target="_blank" class="btn">Get your Referral Code Now</a>
+      <a href="https://www.tesla.com/teslaaccount/lootbox" target="_blank" class="btn">Get your Referral Code Now</a>
 
     </div>
   </div>
